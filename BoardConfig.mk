@@ -123,7 +123,7 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
 # CMHW
 BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS += hardware/cyanogen/cmhw
+BOARD_HARDWARE_CLASS += hardware/lineage/lineagehw/
 
 # CNE / DPM
 BOARD_USES_QCNE := true
@@ -150,7 +150,7 @@ VSYNC_EVENT_PHASE_OFFSET_NS := 2000000
 
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 USE_OPENGL_RENDERER := true
-
+TARGET_PROVIDES_LIBLIGHT := true
 # Filesystem
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -213,11 +213,6 @@ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/recovery/fstab.qcom
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 #BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
-
-# TWRP Support - Optional
-ifeq ($(WITH_TWRP),true)
--include $(LOCAL_PATH)/twrp.mk
-endif
 
 # Wi-Fi
 BOARD_HAS_QCOM_WLAN := true
